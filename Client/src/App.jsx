@@ -1,35 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  const handleForm = (e) => {
+    e.preventDefault();
+    console.log(e.target);
+  };
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <form onSubmit={(e) => handleForm(e)}>
+          <div className="input-container">
+            <label htmlFor="phone">Enter Phone No.</label>
+            <input type="text" name="phone_no" id="phone" />
+          </div>
+
+          <div className="input-container">
+            <label htmlFor="fname">Enter First Name</label>
+            <input type="text" name="first_name" id="fname" />
+          </div>
+
+          <div className="input-container">
+            <label htmlFor="lname">Enter Last Name</label>
+            <input type="text" name="last_name" id="lname" />
+          </div>
+
+          <div className="input-container">
+            <label htmlFor="gender">Enter gender</label>
+            <input type="text" name="gender" id="gender" />
+          </div>
+
+          <div className="input-container">
+            <label htmlFor="email">Enter email</label>
+            <input type="email" name="email" id="email" />
+          </div>
+
+          <div className="input-container">
+            <label htmlFor="location">Enter location</label>
+            <input type="text" name="location" id="location" />
+          </div>
+
+          <input type="submit" />
+        </form>{" "}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
